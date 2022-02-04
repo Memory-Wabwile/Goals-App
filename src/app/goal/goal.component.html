@@ -9,9 +9,9 @@
     </ul>
   </div> -->
 
-  <!--  for hiding and showing the goals-->
+<!--  for hiding and showing the goals-->
 
-  <!-- <h1>My Goals</h1>
+<!-- <h1>My Goals</h1>
 <hr>
 <ul>
   <div *ngFor='let goal of goals;let i = index'>
@@ -24,13 +24,31 @@
 
 <!-- add event emitter defined in .ts completeGoal($event,i) -->
 
-<h1>My Goals</h1>
-<hr>
-<ul>
-  <div *ngFor='let goal of goals;let i = index'>
-    <li appStrikethrough >{{goal.name}} due on {{goal.completeDate|date|uppercase}}</li>
-    <button (click)='toggleDetails(i)'>Toggle Details</button>
-    <app-goal-detail *ngIf='goal.showDescription' [goal]='goal' (isComplete) = 'deleteGoal($event,i)'></app-goal-detail>
+
+<!-- hiding and showing description  -->
+<!-- the end -->
+<!--  
+
+  <!--  -->
+
+  <div class="container">
+    <h1>My Goals</h1>
+    <hr>
+  
+    <div class="row">
+      <div class="col-md-6">
+        <div *ngFor='let goal of goals;let i = index'>
+          <div>
+            <h4 id={{i}} appStrikethrough>{{goal.name}} due on {{goal.completeDate|date|uppercase}}</h4>
+            <button (click)='toggleDetails(i)' class="btn btn-primary">Toggle Details</button>
+          </div>
+  
+          <div *ngIf='goal.showDescription'>
+            <app-goal-detail  [goal]='goal' (isComplete) = 'deleteGoal($event,i)'></app-goal-detail>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <p *ngIf='goals.length > 5'>You have too many goals</p>
   </div>
-</ul>
-<p *ngIf='goals.length > 5'>You have too many goals</p>

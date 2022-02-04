@@ -15,7 +15,7 @@ export class GoalDetailComponent implements OnInit {
 
   @Output() isComplete = new EventEmitter<boolean>();
 
-  goalComplete(complete:boolean){
+  goalDelete(complete:boolean){
     this.isComplete.emit(complete);
   }
   // end of deleting the goal

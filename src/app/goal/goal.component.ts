@@ -49,11 +49,11 @@ export class GoalComponent implements OnInit {
       new Date(2030, 3, 14)
     ),
   ];
-  addNewGoal(goal:any){
+  addNewGoal(goal: any) {
     let goalLength = this.goals.length;
-    goal.id = goalLength+1;
-    goal.completeDate = new Date(goal.completeDate)
-    this.goals.push(goal)
+    goal.id = goalLength + 1;
+    goal.completeDate = new Date(goal.completeDate);
+    this.goals.push(goal);
   }
 
   toggleDetails(index: any) {
@@ -72,7 +72,7 @@ export class GoalComponent implements OnInit {
       }
     }
   }
-  
+
   constructor() {}
 
   ngOnInit(): void {}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Goal } from '../goal';
 
 @Component({
   selector: 'app-goal-form',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GoalFormComponent implements OnInit {
 
+
+  newGoal = new Goal(0,"","",new Date());
   constructor() { }
 
   ngOnInit(): void {

@@ -49,6 +49,8 @@ export class GoalComponent implements OnInit {
       new Date(2030, 3, 14)
     ),
   ];
+
+  // pushing value from the form
   addNewGoal(goal: any) {
     let goalLength = this.goals.length;
     goal.id = goalLength + 1;

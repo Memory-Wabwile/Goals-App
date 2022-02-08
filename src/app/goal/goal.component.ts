@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Goal } from '../goal';
+import { GoalService } from '../goal-service/goal.service'; //=> registering aservice
 
 @Component({
   selector: 'app-goal',
   templateUrl: './goal.component.html',
   styleUrls: ['./goal.component.css'],
+  providers: [GoalService]  //for registering a service
 })
 export class GoalComponent implements OnInit {
+  goals: any;
   // goals: Goal[] = [
   //   {id:1, name:'Watch finding Nemo',description:'Find an online version and watch merlin find his son'},
   //   {id:2,name:'Buy Cookies',description:'I have to buy cookies for the parrot'},
@@ -28,7 +31,7 @@ export class GoalComponent implements OnInit {
 
   toggleDetails(index: any) {
     this.goals[index].showDescription = !this.goals[index].showDescription;
-  } completeGoal(isComplete, index){
+  } completeGoal(isComplete:any, index:any){
     if (isComplete) {
       this.goals.splice(index,1);
     }
@@ -47,7 +50,9 @@ export class GoalComponent implements OnInit {
     }
   }
 
-  constructor() {}
+  constructor(goalService:GoalService) {
+    this.goals = goalService.getGoals()
+  }
 
   ngOnInit(): void {}
 }

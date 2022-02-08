@@ -1,5 +1,5 @@
 import { Goal} from './goal';
-export let  goals: Goal[] = [
+export let  Goals: Goal[] = [
     new Goal(
       1,
       'Watch finding Nemo',

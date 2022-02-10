@@ -12,6 +12,9 @@ import { Quote } from '../quote-class/quote';
   providers: [GoalService], //for registering a service
 })
 export class GoalComponent implements OnInit {
+  
+
+
   goals: Goal[];
   alertService!: AlertService;
   quote: any;
@@ -66,8 +69,9 @@ export class GoalComponent implements OnInit {
     this.goals = goalService.getGoals();
     this.alertService = alertService;
   }
+  
 
-  ngOnInit(): void {          //for the API response
+  ngOnInit(): void {          //for the API response of quotes
     interface ApiResponse {
       author: string;
       quote: string;
@@ -76,6 +80,15 @@ export class GoalComponent implements OnInit {
     this.http.get<ApiResponse>("http://quotes.stormconsultancy.co.uk/random.json").subscribe(data=>{
       // Succesful API request
       this.quote = new Quote(data.author, data.quote)
-  });
+  },
+
+  //For displaying any error on the page
+ 
+  err=>{
+      this.quote = new Quote("Winston Churchill","Never never give up!")
+      console.log("An error occurred")
+  })
 }
+
+
 }

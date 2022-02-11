@@ -14,11 +14,11 @@ import { QuoteRequestService } from '../quote-http/quote-request.service';
 })
 export class GoalComponent implements OnInit {
   
-
+  // quote:Quote | undefined;
 
   goals: Goal[];
   alertService!: AlertService;
-  quote: any;
+  quote: Quote | undefined;
 
   // goals: any;
   // goals: Goal[] = [
@@ -79,26 +79,26 @@ export class GoalComponent implements OnInit {
     this.quote = this.quoteService.quote
   }
 
-    interface ApiResponse {       //for the API response of quotes
+    interface ApiResponse  {       //for the API response of quotes
       author: string;
       quote: string;
     }
 
 
-    this.http.get<ApiResponse>("http://quotes.stormconsultancy.co.uk/random.json").subscribe(data=>{
+    this.http.get<ApiResponse>("http://quotes.stormconsultancy.co.uk/random.json").subscribe((data: { author: string; quote: string; })=>{
       // Succesful API request
       this.quote = new Quote(data.author, data.quote)
   },
 
-  //For displaying any error on the page
+      (  //For displaying any error on the page
  
-  err=>{
+  err: any)=>{
       this.quote = new Quote("Winston Churchill","Never never give up!")
       console.log("An error occurred")
-  })
+  });
 
 
-}
 
 
-}
+
+

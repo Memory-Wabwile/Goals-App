@@ -16,6 +16,7 @@ import { GoalFormComponent } from './goal-form/goal-form.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutComponent } from './about/about.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AboutComponent } from './about/about.component';
     GoalFormComponent,
     ProgressBarComponent,
     AboutComponent,
+    NavbarComponent,
    
   ],
   imports: [

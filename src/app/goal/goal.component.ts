@@ -73,12 +73,8 @@ export class GoalComponent implements OnInit {
   }
   
 
-  ngOnInit(): void {      
+  ngOnInit(): void {   
     
-    this.quoteService.quoteRequest()
-    this.quote = this.quoteService.quote
-  }
-
     interface ApiResponse  {       //for the API response of quotes
       author: string;
       quote: string;
@@ -98,7 +94,13 @@ export class GoalComponent implements OnInit {
   });
 
 
+    
+    this.quoteService.quoteRequest()
+    this.quote = this.quoteService.quote
+  }
+
+   
 
 
-
+}
 

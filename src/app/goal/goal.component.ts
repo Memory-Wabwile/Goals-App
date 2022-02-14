@@ -20,6 +20,9 @@ export class GoalComponent implements OnInit {
   alertService!: AlertService;
   quote: Quote | undefined;
 
+  author!: string;
+  // quote!: string;
+
   // goals: any;
   // goals: Goal[] = [
   //   {id:1, name:'Watch finding Nemo',description:'Find an online version and watch merlin find his son'},

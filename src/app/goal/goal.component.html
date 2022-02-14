@@ -33,14 +33,14 @@
 
   <div class="container">
     <mat-progress-bar mode="determinate" value=40></mat-progress-bar>
-    <h1>My Goals</h1>
+    <h1 style="text-align: center; font-size: 2em;" >My Goals</h1>
     <hr>
   
-    <div class="row">
-      <div class="col-md-6">
+    <div  class="row">
+      <div  class="col-md-6">
         <div *ngFor='let goal of goals;let i = index'>
           <div>
-            <h4 id={{i}} appStrikethrough>{{goal.name}} due on {{goal.completeDate|date|uppercase}}</h4>
+            <h4 style="font-size: 25px;" id={{i}} appStrikethrough>{{goal.name}} due on {{goal.completeDate|date|uppercase}}</h4>
             <button (click)='toggleDetails(i)' class="btn btn-primary">Toggle Details</button>
           </div>
   
@@ -57,14 +57,14 @@
 
     </div>
   
-    <p *ngIf='goals.length > 5'>You have too many goals</p>
+    <p  style="font-size: 1.5em;" *ngIf='goals.length > 5'>You have too many goals</p>
   
     <!-- displaying the quote from http API -->
     <div class="row">
-      <blockquote class="blockquote text-center">
+      <!-- <blockquote class="blockquote text-center">
         <p class="mb-0">{{quote.quote}}</p>
         <footer class="blockquote-footer"><cite>{{quote.author}}</cite></footer>
-      </blockquote>
+      </blockquote> -->
     </div>
   
   </div>
